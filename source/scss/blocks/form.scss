@@ -79,7 +79,6 @@
 }
 
 .form__button {
-  flex-grow: 1;
 
   @media (orientation: portrait) {
     position: relative;
@@ -143,6 +142,38 @@
 
     @media (max-width: $mobile) and (orientation: landscape) {
       width: calc(100% - 5rem);
+    }
+  }
+}
+
+#message-form {
+  justify-content: flex-end;
+}
+
+.screen--game {
+  .form__field {
+    width: 0px;
+    padding: 0px;
+    transition: all 0.4s ease; 
+  }
+  &.active {
+    .form__field {
+      padding: 0 5.6rem;
+      width: calc(100% - 21rem);
+    
+      @media (orientation: portrait) {
+        padding: 0 2.5rem;
+        width: calc(100% - 5rem);
+      }
+    
+      @media (max-width: $tablet) and (orientation: landscape) {
+        width: calc(100% - 9rem);
+      }
+    
+      @media (max-width: $mobile) and (orientation: landscape) {
+        padding: 0 2.5rem;
+        width: calc(100% - 5rem);
+      }
     }
   }
 }
