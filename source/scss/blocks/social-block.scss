@@ -17,6 +17,7 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
+  transition: all 0.2s ease;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -35,6 +36,7 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition: 0.2s all ease;
   }
 
   svg {
@@ -169,6 +171,12 @@
   border: 2px solid transparent;
   border-radius: 50%;
 
+  svg {
+    opacity: 0;
+    @include center;
+    top: 60%;
+  }
+  
   @media (min-width: $stop-scaling) {
     width: 40px;
     height: 40px;
@@ -182,6 +190,13 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     color: $c-light;
     background-color: $c-dark;
+  }
+
+  @media (max-width: $tablet) {
+    svg {
+      opacity: 1;
+      top: 50%;
+    }
   }
 
   &:hover {
@@ -202,9 +217,7 @@
     border-color: $c-light;
   }
 
-  svg {
-    @include center;
-  }
+  
 
   &--fb {
     svg {
@@ -238,6 +251,32 @@
       @media (min-width: $stop-scaling) {
         width: 10px;
         height: 10px;
+      }
+    }
+  }
+}
+
+.social-block--active {
+  .social-block__list {
+    svg {
+      opacity: 1;
+      top: 50%;
+    }
+    li:nth-child(1) {
+      svg {
+        transition: all 0.2s ease-in-out;
+      }
+    }
+    li:nth-child(2) {
+      svg {
+        transition: all 0.2s ease-in-out;
+        transition-delay: 0.1s;
+      }
+    }
+    li:nth-child(3) {
+      svg {
+        transition: all 0.2s ease-in-out;
+        transition-delay: 0.2s;
       }
     }
   }
