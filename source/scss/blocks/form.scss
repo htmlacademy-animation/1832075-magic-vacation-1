@@ -153,12 +153,14 @@
 .screen--game {
   .form__field {
     width: 0px;
-    padding: 0px;
-    transition: all 0.4s ease; 
+    padding: 3rem;
+    transition: width 0.4s ease;
+    opacity: 0; 
   }
   &.active {
     .form__field {
       padding: 0 5.6rem;
+      opacity: 1;
       width: calc(100% - 21rem);
     
       @media (orientation: portrait) {
