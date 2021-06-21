@@ -3213,23 +3213,12 @@ img {
 }
 .screen::after {
   content: "";
-  width: 100%;
-  height: 100%;
   position: absolute;
-  display: none;
   bottom: 0;
   left: 0;
-  right: 0;
   z-index: 2;
-  background-color: #5f458c;
-  opacity: 1;
-  transition: all 0.4s ease;
-}
-.screen.active::after {
-  z-index: 0;
-  opacity: 0;
-  transition: all 0.4s ease;
-  background-color: transparent;
+  height: 100%;
+  width: 100%;
 }
 
 .screen__wrapper {
@@ -3574,12 +3563,29 @@ img {
     background-position: top center, bottom center;
   }
 }
+.screen--story::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  transform: translateY(0%);
+  background-color: #5f458c;
+  transition: transform 0.3s ease;
+}
+.screen--story.active::after {
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+.screen--story.screen--hidden::after {
+  transform: translateY(0%);
+  transition: transform 0.3s ease;
+}
 
 .screen--prizes {
   background-color: #5f458c;
-}
-.screen--prizes::after {
-  display: block;
 }
 
 .screen--game {
@@ -3631,9 +3637,6 @@ img {
 
 .screen--rules {
   background-color: #5f458c;
-}
-.screen--rules::after {
-  display: block;
 }
 
 .slider {

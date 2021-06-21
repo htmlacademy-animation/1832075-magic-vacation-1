@@ -10422,12 +10422,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (() => {
     window.onload = function() {
         document.querySelector('html').classList.add('js-load');
-        if (document.location.hash != undefined) {
+        if (document.location.hash != undefined && document.querySelector('.js-menu-link[href*="' + document.location.hash + '"]') != null) {
             document.querySelector('.js-menu-link[href*="' + document.location.hash + '"]').classList.add('active');
         } else {
             document.querySelector('.page-header__menu').querySelector('.js-menu-link').classList.add('active');
         }
-        
     }
 });
 
@@ -10522,6 +10521,19 @@ class FullPageScroll {
 
   init() {
     document.addEventListener(`wheel`, lodash_throttle__WEBPACK_IMPORTED_MODULE_0___default()(this.onScrollHandler, this.THROTTLE_TIMEOUT, {trailing: true}));
+    document.querySelectorAll('.js-menu-link').forEach((link) => {
+      link.addEventListener('click', function(evt) {
+        evt.preventDefault();
+        
+        let href = evt.target.hash;
+
+        document.querySelector(`.screen.active`).classList.add('screen--hidden');
+
+        setTimeout(() => {
+          window.location = href;
+        }, 300)
+      });
+    });
     window.addEventListener(`popstate`, this.onUrlHashChengedHandler);
 
     this.onUrlHashChanged();
@@ -10562,10 +10574,11 @@ class FullPageScroll {
       screen.classList.add(`screen--hidden`);
       screen.classList.remove(`active`);
     });
-    this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
+    
     setTimeout(() => {
+      this.screenElements[this.activeScreen].classList.remove(`screen--hidden`)
       this.screenElements[this.activeScreen].classList.add(`active`);
-    }, 100);
+    }, 300);
   }
 
   changeActiveMenuItem() {
