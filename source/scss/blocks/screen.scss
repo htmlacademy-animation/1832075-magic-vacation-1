@@ -5,7 +5,12 @@
   min-height: 100vh;
   z-index: 1;
   overflow: hidden;
-
+  height: 100vh;
+  &.screen--hidden {
+    // min-height: 0px;
+    // height: 0px;
+    // width: 0px;
+  }
   @media (max-width: $tablet) and (orientation: portrait) {
     min-height: calc(var(--vh, 1vh) * 100);
   }
@@ -23,6 +28,11 @@
     height: 100%;
     width: 100%;
   }
+  &.active {
+    &::after {
+      z-index: 0;
+    }
+  }
 }
 
 .screen__wrapper {
@@ -37,11 +47,14 @@
 }
 
 .screen__disclaimer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 3;
+  // position: absolute;
+  // bottom: 0;
+  // left: 0;
+  // right: 0;
+  // z-index: 3;
+  // @media (max-width: $tablet) {
+  //   position: relative;
+  // }
 }
 
 .screen__footer {
@@ -53,6 +66,7 @@
   z-index: 3;
   bottom: -100%;
   transition: bottom 0.4s ease;
+  overflow: hidden;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;
@@ -230,6 +244,7 @@
     text-align: left;
     font-size: 1.4rem;
     line-height: 1.1;
+    display: block;
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
@@ -238,6 +253,7 @@
     text-align: left;
     font-size: 1.4rem;
     line-height: 1.1;
+    display: block;
   }
 
   p {
@@ -307,7 +323,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
+  overflow: hidden;
   @media (orientation: portrait) {
     background-size: auto calc(100vh - 13.8rem), 100% 25rem;
     background-position: top center, bottom center;
@@ -332,6 +348,7 @@
   }
   &.screen--hidden {
     &::after {
+      z-index: 2;
       transform: translateY(0%);
       transition: transform 0.3s ease;
     }
