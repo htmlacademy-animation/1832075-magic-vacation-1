@@ -3250,6 +3250,7 @@ img {
   min-height: 100vh;
   z-index: 1;
   overflow: hidden;
+  height: 100vh;
 }
 @media (max-width: 1024px) and (orientation: portrait) {
   .screen {
@@ -3302,14 +3303,6 @@ img {
   }
 }
 
-.screen__disclaimer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 3;
-}
-
 .screen__footer {
   position: absolute;
   left: 0;
@@ -3319,6 +3312,7 @@ img {
   z-index: 3;
   bottom: -100%;
   transition: bottom 0.4s ease;
+  overflow: hidden;
 }
 @media (max-width: 1024px) and (orientation: portrait) {
   .screen__footer {
@@ -3532,6 +3526,7 @@ img {
     text-align: left;
     font-size: 1.4rem;
     line-height: 1.1;
+    display: block;
   }
 }
 @media (max-width: 768px) and (orientation: landscape) {
@@ -3541,6 +3536,7 @@ img {
     text-align: left;
     font-size: 1.4rem;
     line-height: 1.1;
+    display: block;
   }
 }
 .screen__footer-note p {
@@ -3609,6 +3605,7 @@ img {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  overflow: hidden;
 }
 @media (orientation: portrait) {
   .screen--story {
@@ -3633,6 +3630,7 @@ img {
   transition: transform 0.3s ease;
 }
 .screen--story.screen--hidden::after {
+  z-index: 2;
   transform: translateY(0%);
   transition: transform 0.3s ease;
 }
