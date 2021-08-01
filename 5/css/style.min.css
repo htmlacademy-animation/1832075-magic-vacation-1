@@ -3022,9 +3022,8 @@ img {
 
 .result__image .result__image--flamingo {
   opacity: 0;
-  transform: scale(0) translateY(200px);
-  transition: 0.2s all 0.5s ease;
   z-index: 3;
+  will-change: transform;
 }
 
 @keyframes suitcase-move-up-and-scale {
@@ -3183,7 +3182,7 @@ img {
   animation-duration: 0.7s;
   animation-fill-mode: forwards;
   animation-delay: 0.8s;
-  animation-timing-function: cubic-bezier(0.37, 0.2, 0.06, 1.5);
+  animation-timing-function: cubic-bezier(0.69, 1.5, 0.83, 1.18);
 }
 @media (max-width: 1200px) {
   .screen--result.screen--show .result__image .result__image--suitcase {
@@ -3209,7 +3208,7 @@ img {
   animation-name: flamingo-move-up-and-scale, flamingo-up-down-and-rotate;
   animation-duration: 0.7s, 5s;
   animation-fill-mode: forwards, forwards;
-  animation-timing-function: cubic-bezier(0.37, 0.2, 0.06, 1.5), linear;
+  animation-timing-function: cubic-bezier(0.69, 1.5, 0.83, 1.18), linear;
   animation-delay: 0.85s, 1.55s;
   animation-iteration-count: 1, infinite;
 }
