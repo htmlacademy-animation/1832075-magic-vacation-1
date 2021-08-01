@@ -4091,6 +4091,9 @@ img {
   opacity: 1;
   pointer-events: auto;
 }
+.screen--result.screen--show::after {
+  z-index: 0;
+}
 
 .screen--rules {
   background-color: #5f458c;
