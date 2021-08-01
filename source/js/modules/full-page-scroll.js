@@ -22,7 +22,18 @@ export default class FullPageScroll {
         
         let href = evt.target.hash;
 
+        if (href == window.location.hash) {
+          console.log('jj')
+          return false
+        }
+
         document.querySelector(`.screen.active`).classList.add('screen--hidden');
+
+        if (evt.target.hash == "#prizes" && window.location.hash == "#story") {
+          document.querySelector('.screen--story').classList.add('screen--story--hidden');
+        } else {
+          document.querySelector('.screen--story').classList.remove('screen--story--hidden');
+        }
 
         setTimeout(() => {
           window.location = href;
