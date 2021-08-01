@@ -388,6 +388,9 @@
   &.screen--show {
     opacity: 1;
     pointer-events: auto;
+    &::after {
+      z-index: 0;
+    }
   }
 }
 
