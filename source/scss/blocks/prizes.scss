@@ -49,7 +49,25 @@
     font-size: 2rem;
     margin-bottom: 1rem;
   }
+
+  .slogan__word {
+    overflow: hidden;
+    display: block;
+  }
+  .slogan__word > span {
+    transform: translate3d(0, 120%, 0);
+    display: inline-block;
+  }
 }
+
+.screen--prizes.active {
+  .prizes__title {
+    &.active .slogan__word > span {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
 
 .prizes__lead {
   margin-left: 5.8rem;

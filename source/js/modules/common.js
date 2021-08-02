@@ -8,3 +8,7 @@ export default () => {
         }
     }
 };
+
+export function storyClearBody() {
+    document.body.classList.remove('body__purple', 'body__blue', 'body__lightblue', 'body__durkpurple');
+}

@@ -21,6 +21,23 @@
   @media (max-width: $mobile) and (orientation: landscape) {
     padding: 4rem 0 4rem;
   }
+
+  .slogan__word {
+    overflow: hidden;
+    display: block;
+  }
+  .slogan__word > span {
+    transform: translate3d(0, 120%, 0);
+    display: inline-block;
+  }
+}
+
+.screen--rules.active {
+  .rules__title {
+    &.active .slogan__word > span {
+      transform: translate3d(0, 0, 0);
+    }
+  }
 }
 
 .rules__title {

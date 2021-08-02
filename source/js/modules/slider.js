@@ -1,10 +1,12 @@
 import Swiper from "swiper";
+import {storyClearBody} from './common';
 
 export default () => {
   let storySlider;
   let sliderContainer = document.getElementById(`story`);
   sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
-
+  storyClearBody();
+  document.body.classList.add('body__purple')
   const setSlider = function () {
     if (((window.innerWidth / window.innerHeight) < 1) || window.innerWidth < 769) {
       storySlider = new Swiper(`.js-slider`, {
@@ -53,12 +55,20 @@ export default () => {
           slideChange: () => {
             if (storySlider.activeIndex === 0) {
               sliderContainer.style.backgroundImage = `url("img/slide1.jpg")`;
+              storyClearBody();
+              document.body.classList.add('body__purple')
             } else if (storySlider.activeIndex === 2) {
               sliderContainer.style.backgroundImage = `url("img/slide2.jpg")`;
+              storyClearBody();
+              document.body.classList.add('body__blue')
             } else if (storySlider.activeIndex === 4) {
               sliderContainer.style.backgroundImage = `url("img/slide3.jpg")`;
+              storyClearBody();
+              document.body.classList.add('body__lightblue')
             } else if (storySlider.activeIndex === 6) {
               sliderContainer.style.backgroundImage = `url("img/slide4.jpg")`;
+              storyClearBody();
+              document.body.classList.add('body__durkpurple')
             }
           },
           resize: () => {

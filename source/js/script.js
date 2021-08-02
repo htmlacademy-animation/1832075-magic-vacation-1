@@ -9,6 +9,7 @@ import result from './modules/result.js';
 import form from './modules/form.js';
 import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
+import AccentTypographyBuild from './modules/accent-typography-builder';
 
 // init modules
 common();
