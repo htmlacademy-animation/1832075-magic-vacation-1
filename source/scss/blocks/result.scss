@@ -156,7 +156,7 @@
     font-size: 1.6rem;
   }
 
-  span {
+  span:not(.btn-text) {
     position: relative;
     margin-left: 1.5rem;
     width: 4rem;
@@ -438,6 +438,17 @@
   }
 }
 
+@keyframes btnRotate {
+  0% {
+    transform: translateX(50px) rotate(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px) rotate(0deg);
+    opacity: 1;
+  }
+}
+
 .screen--result {
   .form {
     justify-content: flex-end;
@@ -455,6 +466,16 @@
     opacity: 0;
     color: #fff;
     transition: opacity 0.2s ease 1.5s, color 0.2s ease 1.7s;
+  }
+  .btn-text {
+    opacity: 0;
+    transition: opacity 0.4s ease 0.8s;
+  }
+  .result__button {
+    span:not(.btn-text) {
+      opacity: 0;
+      transform: translateX(50px) rotate(90deg);
+    }
   }
   &.screen--show {
     .result__title {
@@ -477,7 +498,6 @@
         left: 47%;
         transform: translate(-50%, -50%) scale(0.1);
         opacity: 0;
-    
         animation-name: suitcase-move-up-and-scale;
         animation-duration: 0.7s;
         animation-fill-mode: forwards;
@@ -492,7 +512,7 @@
           height: 220px;
         }
       }
-    
+
       .result__image--flamingo {
         position: absolute;
         width: 300px;
@@ -502,7 +522,6 @@
         top: 66%;
         left: 42%;
         transform: translate(-50%, -50%) scale(0.1);
-    
         animation-name: flamingo-move-up-and-scale, flamingo-up-down-and-rotate;
         animation-duration: 0.7s, 5s;
         animation-fill-mode: forwards, forwards;
@@ -522,7 +541,7 @@
           left: 41%;
         }
       }
-    
+
       .result__image--leaf_blue_right {
         position: absolute;
         width: 279px;
@@ -531,7 +550,6 @@
         top: 56%;
         left: 57%;
         transform: translate(-50%, -50%) rotate(0);
-    
         transform-origin: left center;
         animation-name: leaf-blue-move1;
         animation-delay: 1.5s;
@@ -551,7 +569,7 @@
           left: 60%;
         }
       }
-    
+
       .result__image--leaf_blue_left {
         position: absolute;
         width: 279px;
@@ -561,7 +579,6 @@
         left: 38%;
         transform: translate(-50%, -50%) rotate(0);
         transform-origin: right center;
-    
         animation-name: leaf-blue-move2;
         animation-delay: 1.45s;
         animation-duration: 0.7s;
@@ -580,7 +597,7 @@
           left: 34%;
         }
       }
-    
+
       .result__image--leaf_green {
         position: absolute;
         width: 439px;
@@ -590,7 +607,6 @@
         left: 58%;
         transform: translate(-50%, -50%) rotate(0);
         transform-origin: left 70%;
-    
         animation-name: leaf-green-move;
         animation-delay: 1.5s;
         animation-duration: 0.75s;
@@ -631,6 +647,18 @@
     .form__button {
       opacity: 1;
       color: $c-dark;
+    }
+    .btn-text {
+      opacity: 1;
+    }
+    .result__button {
+      span:not(.btn-text) {
+        animation-name: btnRotate;
+        animation-duration: 0.4s;
+        animation-delay: 0.8s;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
+      }
     }
   }
 }

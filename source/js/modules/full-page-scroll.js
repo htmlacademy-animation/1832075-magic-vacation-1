@@ -1,4 +1,5 @@
 import throttle from 'lodash/throttle';
+import {storyClearBody} from './common';
 
 export default class FullPageScroll {
   constructor() {
@@ -19,11 +20,12 @@ export default class FullPageScroll {
     document.querySelectorAll('.js-menu-link').forEach((link) => {
       link.addEventListener('click', function(evt) {
         evt.preventDefault();
-        
+
         let href = evt.target.hash;
+        let screenFooterPrizes = document.querySelector('.screen--prizes .screen__footer');
+        let screenDisclaimerRules = document.querySelector('.screen--rules .screen__disclaimer');
 
         if (href == window.location.hash) {
-          console.log('jj')
           return false
         }
 
@@ -33,6 +35,23 @@ export default class FullPageScroll {
           document.querySelector('.screen--story').classList.add('screen--story--hidden');
         } else {
           document.querySelector('.screen--story').classList.remove('screen--story--hidden');
+        }
+
+        if (evt.target.hash == "#rules" && window.location.hash == "#prizes") {
+          screenFooterPrizes.classList.remove('active');
+          screenDisclaimerRules.classList.add('active');
+        } else if (evt.target.hash == "#prizes" && window.location.hash == "#rules") {
+          screenDisclaimerRules.classList.remove('active');
+          screenFooterPrizes.classList.add('active');
+        } else {
+          screenDisclaimerRules.classList.remove('active');
+          screenFooterPrizes.classList.remove('active');
+        }
+
+        if (evt.target.hash != '#story') {
+          storyClearBody();
+        } else {
+          document.body.classList.add('body__purple')
         }
 
         setTimeout(() => {

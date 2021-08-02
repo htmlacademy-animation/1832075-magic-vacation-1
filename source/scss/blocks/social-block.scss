@@ -69,6 +69,8 @@
     &::before {
       width: 112.5%;
       height: 112.5%;
+      margin-left: -56.25%;
+      margin-top: -56.25%;
     }
   }
 
@@ -78,6 +80,10 @@
 
     &::before {
       border-color: $c-purple;
+      width: 112.5%;
+      height: 112.5%;
+      margin-left: -56.25%;
+      margin-top: -56.25%;
     }
 
     & + .social-block__list {
@@ -91,10 +97,80 @@
     color: $c-light;
 
     &::before {
-      width: 100%;
-      height: 100%;
+      width: 112.5%;
+      height: 112.5%;
+      margin-left: -56.25%;
+      margin-top: -56.25%;
       background-color: $c-purple;
       border-color: $c-purple;
+    }
+  }
+}
+
+.body__purple {
+  .social-block__toggler {
+    path {
+      fill: #9F7DE4
+    }
+  }
+  .page-header__menu a {
+    &:hover,
+    &:focus {
+      color: lighten(#9F7DE4, 25%);
+      &::after {
+        background-color: lighten(#9F7DE4, 25%);
+      }
+    }
+  }
+}
+
+.body__blue {
+  .social-block__toggler {
+    path {
+      fill: #4773DE
+    }
+  }
+  .page-header__menu a {
+    &:hover,
+    &:focus {
+      color: lighten(#4773DE, 25%);
+      &::after {
+        background-color: lighten(#4773DE, 25%);
+      }
+    }
+  }
+}
+
+.body__lightblue {
+  .social-block__toggler {
+    path {
+      fill: #9EC4EB
+    }
+  }
+  .page-header__menu a {
+    &:hover,
+    &:focus {
+      color: lighten(#9EC4EB, 25%);
+      &::after {
+        background-color: lighten(#9EC4EB, 25%);
+      }
+    }
+  }
+}
+
+.body__durkpurple {
+  .social-block__toggler {
+    path {
+      fill: #544676
+    }
+  }
+  .page-header__menu a {
+    &:hover,
+    &:focus {
+      color: lighten(#544676, 25%);
+      &::after {
+        background-color: lighten(#544676, 25%);
+      }
     }
   }
 }
@@ -241,7 +317,6 @@
     border-color: $c-light;
   }
 
-  
 
   &--fb {
     svg {

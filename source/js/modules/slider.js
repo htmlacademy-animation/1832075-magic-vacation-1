@@ -1,4 +1,5 @@
 import Swiper from "swiper";
+import {storyClearBody} from './common';
 
 export default () => {
   let storySlider;
@@ -53,12 +54,20 @@ export default () => {
           slideChange: () => {
             if (storySlider.activeIndex === 0) {
               sliderContainer.style.backgroundImage = `url("img/slide1.jpg")`;
+              storyClearBody();
+              document.body.classList.add('body__purple')
             } else if (storySlider.activeIndex === 2) {
               sliderContainer.style.backgroundImage = `url("img/slide2.jpg")`;
+              storyClearBody();
+              document.body.classList.add('body__blue')
             } else if (storySlider.activeIndex === 4) {
               sliderContainer.style.backgroundImage = `url("img/slide3.jpg")`;
+              storyClearBody();
+              document.body.classList.add('body__lightblue')
             } else if (storySlider.activeIndex === 6) {
               sliderContainer.style.backgroundImage = `url("img/slide4.jpg")`;
+              storyClearBody();
+              document.body.classList.add('body__durkpurple')
             }
           },
           resize: () => {
