@@ -50,6 +50,8 @@ export default class FullPageScroll {
 
         if (evt.target.hash != '#story') {
           storyClearBody();
+        } else {
+          document.body.classList.add('body__purple')
         }
 
         setTimeout(() => {
