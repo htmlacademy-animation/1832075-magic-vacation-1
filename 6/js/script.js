@@ -10713,6 +10713,8 @@ class FullPageScroll {
 
         if (evt.target.hash != '#story') {
           Object(_common__WEBPACK_IMPORTED_MODULE_1__["storyClearBody"])();
+        } else {
+          document.body.classList.add('body__purple')
         }
 
         setTimeout(() => {
@@ -10924,8 +10926,7 @@ __webpack_require__.r(__webpack_exports__);
   let storySlider;
   let sliderContainer = document.getElementById(`story`);
   sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
-  Object(_common__WEBPACK_IMPORTED_MODULE_1__["storyClearBody"])();
-  document.body.classList.add('body__purple')
+
   const setSlider = function () {
     if (((window.innerWidth / window.innerHeight) < 1) || window.innerWidth < 769) {
       storySlider = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](`.js-slider`, {
