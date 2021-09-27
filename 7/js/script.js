@@ -10574,7 +10574,14 @@ class FullPageScroll {
       screen.classList.add(`screen--hidden`);
       screen.classList.remove(`active`);
     });
-    
+
+    if (window.location.hash == '#prizes') {
+      const imgList = document.querySelectorAll(`.prizes__icon img`);
+      imgList.forEach(function (item) {
+        item.src = item.src + `?` + String(Math.floor((Math.random() * 100) + 1));
+      });
+    }
+
     setTimeout(() => {
       this.screenElements[this.activeScreen].classList.remove(`screen--hidden`)
       this.screenElements[this.activeScreen].classList.add(`active`);
