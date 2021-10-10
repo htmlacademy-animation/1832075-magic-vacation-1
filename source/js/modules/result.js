@@ -1,6 +1,8 @@
 export default () => {
   let showResultEls = document.querySelectorAll(`.js-show-result`);
   let results = document.querySelectorAll(`.screen--result`);
+  let animationFail = document.querySelectorAll('#svg-fail animate')
+  let pathFail = document.querySelectorAll('#svg-fail path');
   if (results.length) {
     for (let i = 0; i < showResultEls.length; i++) {
       showResultEls[i].addEventListener(`click`, function () {
@@ -14,6 +16,13 @@ export default () => {
         });
         targetEl[0].classList.add(`screen--show`);
         targetEl[0].classList.remove(`screen--hidden`);
+        if (results[2].classList.contains('screen--show')) {
+          let delay = 0;
+          for (let j = 0; j < animationFail.length; j++) {
+            delay = delay + 0.05
+            animationFail[j].beginElement(delay);
+          }
+        }
       });
     }
 
