@@ -11,7 +11,6 @@ export default () => {
   })
 
   function hashHandler () {
-    console.log(timerInit);
     if (window.location.hash === '#game') {
       let screensResults = document.querySelectorAll('.screen--result');
       for (let i = 0; i < screensResults.length; i++) {
