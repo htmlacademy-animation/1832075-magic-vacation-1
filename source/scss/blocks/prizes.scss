@@ -235,6 +235,11 @@
   }
 }
 
+
+.prizes-val {
+  min-width: 19rem;
+}
+
 .prizes__icon {
   @media (max-width: $tablet) and (orientation: portrait) {
     margin-right: 3.8rem;

@@ -10,6 +10,7 @@ import form from './modules/form.js';
 import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
 import counter from './modules/counter.js';
+import prizes from './modules/prizes.js';
 import AccentTypographyBuild from './modules/accent-typography-builder';
 
 // init modules
@@ -23,5 +24,6 @@ result();
 form();
 social();
 counter();
+prizes();
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();

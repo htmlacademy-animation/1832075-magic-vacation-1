@@ -11,7 +11,6 @@ export default () => {
   })
 
   function hashHandler () {
-    console.log(timerInit);
     if (window.location.hash === '#game') {
       let screensResults = document.querySelectorAll('.screen--result');
       for (let i = 0; i < screensResults.length; i++) {
@@ -32,20 +31,22 @@ export default () => {
   }
 
   function startTime() {
-    let date = new Date();
-
+    let startDate = new Date;
+    let date = 300;
     let counter = document.querySelector('.game__counter');
 
-    animate(date.getTime(), counter);
+    animate(startDate.getTime(), date, counter);
   }
 
-  function animate(startDate, counter) {
+  function animate(startDate, time, counter) {
+    let nowDate;
     animateInterval = setInterval(function() {
-      let nowDate = new Date().getTime();
-      let totalTime = Math.round((nowDate - startDate) / 1000);
+      nowDate = new Date().getTime();
+      let totalTime =  Math.round(time - ((nowDate - startDate) / 1000));
 
-      if (totalTime == 301) {
+      if (totalTime <= 0) {
         window.clearInterval(animateInterval);
+        document.querySelector('.game__counter').innerHTML = `00:00`
       } else {
         requestAnimationFrame(function () {
           counter.innerHTML = formatText(totalTime);
@@ -60,12 +61,12 @@ export default () => {
     if (sec < 10) {
       sec = `0${sec}`
     }
-    console.log(sec)
     return `0${min}:${sec}`;
   }
 
   function clearTimer() {
+    console.log('clear int')
     window.clearInterval(animateInterval);
-    document.querySelector('.game__counter').innerHTML = `00:00`
+    document.querySelector('.game__counter').innerHTML = `05:00`
   }
 };
