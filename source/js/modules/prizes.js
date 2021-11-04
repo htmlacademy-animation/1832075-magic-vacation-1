@@ -1,15 +1,22 @@
 export default () => {
-  let animEl = document.querySelector('.prizes__anim .prizes-val');
+  let animElArr = document.querySelectorAll('.prizes__anim .prizes-val');
   let fps = 12;
-  let step = Number(animEl.dataset.step);
-  let val = Number(animEl.textContent);
+  let step;
 
   document.addEventListener('DOMContentLoaded', hashHandler, false);
   window.addEventListener('hashchange', hashHandler, false);
 
   function hashHandler () {
     if (window.location.hash === '#prizes') {
-      animateVal(animEl, animEl.dataset.end, val, fps, step);
+      animElArr.forEach(function(item,i,arr) {
+        let val = Number(item.textContent)
+        if (Number(item.dataset.end) <= 10) {
+          step = 1;
+        } else {
+          step = Math.round(Math.random() * (100 - 40) + 40);
+        }
+        animateVal(item, item.dataset.end, val, fps, step);
+      })
     }
   }
 
