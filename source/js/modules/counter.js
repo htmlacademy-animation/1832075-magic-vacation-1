@@ -25,17 +25,15 @@ export default () => {
   }
 
   function initTimer() {
-    console.log('initTimer');
     startTime();
     timerInit = true;
   }
 
   function startTime() {
-    let startDate = new Date;
-    let date = 300;
+    let date = new Date();
     let counter = document.querySelector('.game__counter');
 
-    animate(startDate.getTime(), date, counter);
+    animate(date.getTime(), counter);
   }
 
   function animate(startDate, time, counter) {
@@ -61,6 +59,7 @@ export default () => {
     if (sec < 10) {
       sec = `0${sec}`
     }
+
     return `0${min}:${sec}`;
   }
 

@@ -1,3 +1,5 @@
+import Scene2DSeaCalf from './scene-2d-sea-calf.js';
+
 export default () => {
   let showResultEls = document.querySelectorAll(`.js-show-result`);
   let results = document.querySelectorAll(`.screen--result`);
@@ -22,6 +24,9 @@ export default () => {
             delay = delay + 0.05
             animationFail[j].beginElement(delay);
           }
+        }
+        if (results[0].classList.contains('screen--show')) {
+          const scene = new Scene2DSeaCalf();
         }
       });
     }
