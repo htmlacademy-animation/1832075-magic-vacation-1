@@ -33,11 +33,12 @@ export default () => {
     let date = new Date();
     let counter = document.querySelector('.game__counter');
 
-    animate(date.getTime(), counter);
+    animate(date.getTime(), 300, counter);
   }
 
   function animate(startDate, time, counter) {
     let nowDate;
+    console.log(counter)
     animateInterval = setInterval(function() {
       nowDate = new Date().getTime();
       let totalTime =  Math.round(time - ((nowDate - startDate) / 1000));

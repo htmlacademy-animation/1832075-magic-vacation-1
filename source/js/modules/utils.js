@@ -56,6 +56,9 @@ function easeOutElastic(x) {
   }
 }
 
+function easeOutQuad(x) {
+  return 1 - (1 - x) * (1 - x);
+}
 
 const _ = Object.freeze({
   easeLinear,
@@ -64,7 +67,8 @@ const _ = Object.freeze({
   easeInExpo,
   easeOutExpo,
   easeInElastic,
-  easeOutElastic
+  easeOutElastic,
+  easeOutQuad,
 });
 
 
