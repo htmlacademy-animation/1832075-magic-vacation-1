@@ -1,4 +1,5 @@
 import Scene2DSeaCalf from './scene-2d-sea-calf.js';
+import Scene2DCrocodile from './scene-2d-crocodile.js';
 
 export default () => {
   let showResultEls = document.querySelectorAll(`.js-show-result`);
@@ -27,6 +28,8 @@ export default () => {
         }
         if (results[0].classList.contains('screen--show')) {
           const scene = new Scene2DSeaCalf();
+        } else if (results[2].classList.contains('screen--show')) {
+          const scene = new Scene2DCrocodile();
         }
       });
     }
